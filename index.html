@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Game Geografia - Encaixe os Países</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="game-card">
+        <header class="game-header">
+            <h1>🌍 Encaixe o País no Continente</h1>
+            <p>Arraste cada país para o seu continente correspondente!</p>
+            <div class="score-board">
+                <span>Acertos: <strong id="acertos">0</strong>/6</span>
+            </div>
+        </header>
+
+        <!-- Banco de Países Disponíveis -->
+        <section class="paises-container" id="banco-paises">
+            <div class="pais-card" draggable="true" id="brasil" data-continente="america-sul">Guiana</div>
+            <div class="pais-card" draggable="true" id="japao" data-continente="asia">Timor Leste</div>
+            <div class="pais-card" draggable="true" id="franca" data-continente="europa">Kosovo</div>
+            <div class="pais-card" draggable="true" id="egito" data-continente="africa">São Tomé e Príncipe</div>
+            <div class="pais-card" draggable="true" id="canada" data-continente="america-norte">São Cristóvão e Névis</div>
+            <div class="pais-card" draggable="true" id="australia" data-continente="oceania">Palau</div>
+        </section>
+
+        <!-- Grade com as Caixas dos 6 Continentes -->
+        <section class="continentes-grid">
+            
+            <div class="continente-box" data-continente="america-sul">
+                <span class="label">América do Sul</span>
+            </div>
+
+            <div class="continente-box" data-continente="america-norte">
+                <span class="label">América do Norte</span>
+            </div>
+
+            <div class="continente-box" data-continente="europa">
+                <span class="label">Europa</span>
+            </div>
+
+            <div class="continente-box" data-continente="asia">
+                <span class="label">Ásia</span>
+            </div>
+
+            <div class="continente-box" data-continente="africa">
+                <span class="label">África</span>
+            </div>
+
+            <div class="continente-box" data-continente="oceania">
+                <span class="label">Oceania</span>
+            </div>
+
+        </section>
+
+        <!-- Mensagem de Vitória -->
+        <div class="mensagem-vitoria" id="mensagem-vitoria">
+            🎉 Parabéns! Você completou todos os continentes!
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

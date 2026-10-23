@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #eef2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Card Principal */
+.game-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.game-header {
+    text-align: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.game-header h1 {
+    font-size: 1.6rem;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.game-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.score-board {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* Banco de Países */
+.paises-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    min-height: 60px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    width: 100%;
+}
+
+/* Cards dos Países */
+.pais-card {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: grab;
+    user-select: none;
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+    transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.pais-card:hover {
+    transform: translateY(-2px);
+    background-color: #1d4ed8;
+}
+
+.pais-card:active {
+    cursor: grabbing;
+}
+
+.pais-card.correto {
+    background-color: #16a34a !important;
+    cursor: default;
+    box-shadow: none;
+}
+
+/* Grid de Continentes (6 Caixas) */
+.continentes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+/* Caixas dos Continentes */
+.continente-box {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    min-height: 100px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    position: relative;
+}
+
+.continente-box .label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    pointer-events: none;
+}
+
+.continente-box.drag-over {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+}
+
+/* Efeito de Acerto (Verde)[cite: 2] */
+.continente-box.acerto {
+    border-color: #22c55e;
+    background-color: #f0fdf4;
+}
+
+/* Efeito de Erro (Vermelho com Tremer)[cite: 2] */
+.continente-box.erro {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+    animation: tremer 0.4s ease-in-out;
+}
+
+@keyframes tremer {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+/* Mensagem Final */
+.mensagem-vitoria {
+    display: none;
+    margin-top: 25px;
+    padding: 15px 25px;
+    background-color: #dcfce7;
+    color: #15803d;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.mensagem-vitoria.ativo {
+    display: block;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .continentes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .continentes-grid {
+        grid-template-columns: 1fr;
+    }
+}
